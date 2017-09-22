@@ -2,44 +2,32 @@ package exercises
 
 import "testing"
 
-func TestJsonStructure(t *testing.T) {
-	json := `{
-	"id": 1,
-	"lang": "go"		
-}`
+func TestInterface1(t *testing.T) {
+	var i int
 
-	type testStruct = langStruct
-	var myStruct testStruct
+	s := what(i)
 
-	err := json.Unmarshal([]byte(json), &myStruct)
-
-	if err != nil {
-		t.Error("it should not error when you make the righ struct that represent json string")
+	if s != "int" {
+		t.Error("it should be int type but got", s)
 	}
 }
 
-func TestJsonStructures(t *testing.T) {
-	json := `[
-	{
-		"id": 1,
-		"lang": "go"
-	},
-	{
-		"id": 2,
-		"lang": "java"
-	},
-	{
-		"id": 3,
-		"lang": "python"
+func TestInterface2(t *testing.T) {
+	var i string
+
+	s := what(i)
+
+	if s != "string" {
+		t.Error("it should be string type but got", s)
 	}
-]`
+}
 
-	type testStruct = langStruct
-	var myStruct []testStruct
+func TestInterface3(t *testing.T) {
+	var i bool
 
-	err := json.Unmarshal([]byte(json), &myStruct)
+	s := what(i)
 
-	if err != nil {
-		t.Error("it should not error when you make the righ struct that represent json string")
+	if s != "bool" {
+		t.Error("it should be bool type but got", s)
 	}
 }
