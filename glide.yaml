@@ -1,0 +1,6 @@
+package: bitbucket.org/pallat/courses/echomocking
+import:
+- package: github.com/labstack/echo
+  version: 3.2.3
+  subpackages:
+  - middleware
