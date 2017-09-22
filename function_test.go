@@ -1,19 +1,19 @@
-package golang
+package exercises
 
 import "testing"
 
-func TestSubtractFuncTenAndTwo(t *testing.T) {
-	result := subtract(10, 2)
+func TestMultipleFunc1(t *testing.T) {
+	result := public.Multiple(2, 3)
 
-	if result != 8 {
-		t.Error("Please make the right subtract function")
+	if result != 6 {
+		t.Error("Please make the public multiple function")
 	}
 }
 
-func TestSubtractFuncTenAndFive(t *testing.T) {
-	result := subtract(10, 5)
+func TestMultipleFunc2(t *testing.T) {
+	result := public.Multiple(3, 4)
 
-	if result != 5 {
-		t.Error("Please make the right subtract function")
+	if result != 12 {
+		t.Error("Please make the public multiple function")
 	}
 }
