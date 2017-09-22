@@ -1,11 +1,9 @@
 package golang
 
-// formula: π = (4/1) - (4/3) + (4/5) - (4/7) + (4/9) - (4/11) + (4/13) - (4/15) ...
-
-func odds(f float64) []float64 {
-	return []float64{}
+func enc(xx, rot byte) byte {
+	return xx
 }
 
-type odde struct {
-	f float64
+func caesar(s string, rot byte) string {
+	return s
 }
