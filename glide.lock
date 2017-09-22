@@ -1,11 +1,10 @@
-hash: bfcdfbe88ddf18697794f0e10c028faf9448b137b23b95ef64141de07c3ba8fd
-updated: 2017-09-22T16:59:03.401631349+07:00
+hash: d0fa0d4ac814beb0535bb1fbfeff59bfe58c55b9992cdd4a28b6b14dcacfcbbc
+updated: 2017-09-22T17:38:11.837586949+07:00
 imports:
-- name: github.com/globalsign/mgo
-  version: 3dbb4874881aa79bfe03cc6c4ae1c5771998708f
-  subpackages:
-  - bson
-  - internal/json
-  - internal/sasl
-  - internal/scram
+- name: github.com/go-sql-driver/mysql
+  version: a0583e0143b1624142adab07e0e97fe106d99561
+- name: github.com/jinzhu/gorm
+  version: 5174cc5c242a728b435ea2be8a2f7f998e15429b
+- name: github.com/jinzhu/inflection
+  version: 1c35d901db3da928c72a72d8458480cc9ade058f
 testImports: []

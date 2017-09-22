@@ -1,46 +1,36 @@
 package main
 
 import (
-	"fmt"
 	"log"
 
-	"github.com/globalsign/mgo"
-	"github.com/globalsign/mgo/bson"
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/jinzhu/gorm"
 )
 
-//docker run --name some-mongo -d -p 27017:27017 mongo
+// docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -p 3306:3306 -d mysql
+// docker run -it --link some-mysql:mysql --rm mysql sh -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD"'
+// insert into accounts (name, email)
+// values ("pallat", "yod.pallat@gmail.com");
+// http://jinzhu.me/gorm/associations.html
 
-type data struct {
-	Name string
+type Account struct {
+	Name  string
+	Email string
 }
 
-var (
-	url        = "mongodb://localhost:27017"
-	database   = "database"
-	collection = "collection"
-	query      = bson.M{"name": "pallat"}
-	result     data
-)
-
 func main() {
-	session, err := mgo.Dial(url)
+	db, err := gorm.Open("mysql", "root:my-secret-pw@/golang?charset=utf8&parseTime=True&loc=Local")
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	defer session.Close()
+	defer db.Close()
 
-	c := session.DB(database).C(collection)
+	user := Account{Name: "Jinzhu", Email: "fake1@gmail.com"}
 
-	// err = c.Insert(bson.M{"name": "pallat"})
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
+	db.NewRecord(user) // => returns `true` as primary key is blank
 
-	err = c.Find(query).One(&result)
-	if err != nil {
-		log.Fatal(err)
-	}
+	db.Create(&user)
 
-	fmt.Println(result)
+	db.NewRecord(user)
 }

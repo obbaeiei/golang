@@ -1,3 +1,6 @@
 package: github.com/pallat/golang
 import:
-- package: github.com/globalsign/mgo
+- package: github.com/go-sql-driver/mysql
+  version: v1.3
+- package: github.com/jinzhu/gorm
+  version: v1.0
