@@ -1,0 +1,3 @@
+package: github.com/pallat/golang
+import:
+- package: github.com/globalsign/mgo
