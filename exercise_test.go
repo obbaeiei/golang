@@ -1,31 +1,65 @@
 package exercises
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
-func TestFactorial1(t *testing.T) {
-	result := factorial(3)
-	if result != 6 {
-		t.Error("Please make the factorial function")
+func TestAppendSlice(t *testing.T) {
+	data := []string{"go", "java", "node", "clojure", "python"}
+	add := []string{"react", "angular", "vue"}
+
+	merged := concat(data, add)
+
+	expected := []string{"go", "java", "node", "clojure", "python", "react", "angular", "vue"}
+
+	if !reflect.DeepEqual(data, expected) {
+		t.Errorf("%v is expected but got %v", expected, merged)
 	}
 }
 
-func TestFactorial2(t *testing.T) {
-	result := factorial(4)
-	if result != 24 {
-		t.Error("Please make the factorial function")
+func TestGetRidOfTheFirst(t *testing.T) {
+	data := []string{"go", "java", "node", "clojure", "python", "react", "angular", "vue"}
+
+	r := delFirst(data)
+
+	expected := []string{"java", "node", "clojure", "python", "react", "angular", "vue"}
+
+	if !reflect.DeepEqual(data, expected) {
+		t.Errorf("%v is expected but got %v", expected, r)
 	}
 }
 
-func TestFactorial3(t *testing.T) {
-	result := factorial(5)
-	if result != 120 {
-		t.Error("Please make the factorial function")
+func TestGetRidOfTheLast(t *testing.T) {
+	data := []string{"go", "java", "node", "clojure", "python", "react", "angular", "vue"}
+
+	r := delLast(data)
+
+	expected := []string{"go", "java", "node", "clojure", "python", "react", "angular"}
+
+	if !reflect.DeepEqual(data, expected) {
+		t.Errorf("%v is expected but got %v", expected, r)
 	}
 }
 
-func TestFactorial4(t *testing.T) {
-	result := factorial(6)
-	if result != 720 {
-		t.Error("Please make the factorial function")
+func TestGetRidOfTheSecond(t *testing.T) {
+	data := []string{"go", "java", "node", "clojure", "python", "react", "angular", "vue"}
+
+	r := delSecond(data)
+
+	expected := []string{"go", "node", "clojure", "python", "react", "angular", "vue"}
+
+	if !reflect.DeepEqual(data, expected) {
+		t.Errorf("%v is expected but got %v", expected, r)
+	}
+}
+
+func TestOnlyOddShouldReturn(t *testing.T) {
+	data := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+	expected := []int{1, 3, 5, 7, 9}
+
+	if !reflect.DeepEqual(data, expected) {
+		t.Errorf("%v is expected but got %v", expected, data)
 	}
 }
