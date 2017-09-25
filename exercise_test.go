@@ -13,7 +13,7 @@ func TestAppendSlice(t *testing.T) {
 
 	expected := []string{"go", "java", "node", "clojure", "python", "react", "angular", "vue"}
 
-	if !reflect.DeepEqual(data, expected) {
+	if !reflect.DeepEqual(r, expected) {
 		t.Errorf("%v is expected but got %v", expected, merged)
 	}
 }
@@ -25,7 +25,7 @@ func TestGetRidOfTheFirst(t *testing.T) {
 
 	expected := []string{"java", "node", "clojure", "python", "react", "angular", "vue"}
 
-	if !reflect.DeepEqual(data, expected) {
+	if !reflect.DeepEqual(r, expected) {
 		t.Errorf("%v is expected but got %v", expected, r)
 	}
 }
@@ -37,7 +37,7 @@ func TestGetRidOfTheLast(t *testing.T) {
 
 	expected := []string{"go", "java", "node", "clojure", "python", "react", "angular"}
 
-	if !reflect.DeepEqual(data, expected) {
+	if !reflect.DeepEqual(r, expected) {
 		t.Errorf("%v is expected but got %v", expected, r)
 	}
 }
@@ -49,7 +49,7 @@ func TestGetRidOfTheSecond(t *testing.T) {
 
 	expected := []string{"go", "node", "clojure", "python", "react", "angular", "vue"}
 
-	if !reflect.DeepEqual(data, expected) {
+	if !reflect.DeepEqual(r, expected) {
 		t.Errorf("%v is expected but got %v", expected, r)
 	}
 }
@@ -59,7 +59,9 @@ func TestOnlyOddShouldReturn(t *testing.T) {
 
 	expected := []int{1, 3, 5, 7, 9}
 
-	if !reflect.DeepEqual(data, expected) {
+	r := odd(data)
+
+	if !reflect.DeepEqual(r, expected) {
 		t.Errorf("%v is expected but got %v", expected, data)
 	}
 }
