@@ -18,8 +18,11 @@ func delSecond(data []string) []string {
 
 func odd(data []int) []int {
 	// filter
+	result := []int{}
 	for i := 0; i < len(data); i++ {
-
+		if v := data[i] % 2; v == 1 {
+			result = append(result, data[i])
+		}
 	}
-	return data
+	return result
 }

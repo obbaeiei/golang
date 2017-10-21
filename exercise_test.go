@@ -62,6 +62,6 @@ func TestOnlyOddShouldReturn(t *testing.T) {
 	r := odd(data)
 
 	if !reflect.DeepEqual(r, expected) {
-		t.Errorf("%v is expected but got %v", expected, data)
+		t.Errorf("%v is expected but got %v", expected, r)
 	}
 }
