@@ -13,7 +13,7 @@ func TestAppendSlice(t *testing.T) {
 
 	expected := []string{"go", "java", "node", "clojure", "python", "react", "angular", "vue"}
 
-	if !reflect.DeepEqual(r, expected) {
+	if !reflect.DeepEqual(merged, expected) {
 		t.Errorf("%v is expected but got %v", expected, merged)
 	}
 }
