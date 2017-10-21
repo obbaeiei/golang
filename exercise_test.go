@@ -2,10 +2,6 @@ package golang
 
 import "testing"
 
-func stepup(x, y int) (int, int) {
-	return (y), (x + y)
-}
-
 func TestMultipleReturnValues1(t *testing.T) {
 	a, b := stepup(0, 1)
 	if a != 1 || b != 1 {
