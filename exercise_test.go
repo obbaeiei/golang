@@ -1,33 +1,33 @@
 package golang
 
-import "testing"
+import (
+	"errors"
+	"strconv"
+	"testing"
+)
 
-func TestInterface1(t *testing.T) {
-	var i int
+type number int
 
-	s := what(i)
+func (n number) String() string {
+	return strconv.Itoa(int(n))
+}
 
-	if s != "int" {
-		t.Error("it should be int type but got", s)
+func TestMyPrintfErrorAndStringer(t *testing.T) {
+	err := errors.New("something when wrong!!")
+	n := number(12)
+
+	s := myPrintf(err, n)
+	if s != "something when wrong!! 12" {
+		t.Error("it shhould work with fmt.Stringer and error as well")
 	}
 }
 
-func TestInterface2(t *testing.T) {
-	var i string
+func TestMyPrintfAny(t *testing.T) {
+	err := errors.New("something when wrong!!")
+	n := number(12)
 
-	s := what(i)
-
-	if s != "string" {
-		t.Error("it should be string type but got", s)
-	}
-}
-
-func TestInterface3(t *testing.T) {
-	var i bool
-
-	s := what(i)
-
-	if s != "bool" {
-		t.Error("it should be bool type but got", s)
+	s := myPrintf("abc", err, n, 123)
+	if s != "abc something when wrong!! 12 123" {
+		t.Error("it shhould work with fmt.Stringer and error as well")
 	}
 }
