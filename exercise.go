@@ -3,6 +3,9 @@ package golang
 import "strconv"
 
 func text(x int) string {
+	if (x%3 == 0) && (x%5 == 0) {
+		return "fizzbuzz"
+	}
 	if (x % 3) == 0 {
 		return "fizz"
 	}
