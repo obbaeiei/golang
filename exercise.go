@@ -6,7 +6,7 @@ func text(x int) string {
 	if (x % 3) == 0 {
 		return "fizz"
 	}
-	if x == 5 {
+	if (x % 5) == 0 {
 		return "buzz"
 	}
 	return strconv.Itoa(x)
