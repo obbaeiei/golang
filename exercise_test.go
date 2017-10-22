@@ -17,3 +17,11 @@ func TestCase2Get2(t *testing.T) {
 		t.Errorf("%s is expected result but got %s", expected, result)
 	}
 }
+
+func TestCase3GetFizz(t *testing.T) {
+	result := text(3)
+	expected := "fizz"
+	if result != expected {
+		t.Errorf("%s is expected result but got %s", expected, result)
+	}
+}
