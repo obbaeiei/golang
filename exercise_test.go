@@ -6,6 +6,8 @@ import (
 	"testing"
 )
 
+type langStruct struct{}
+
 func TestJsonStructure(t *testing.T) {
 	jsonStr := `{
 	"id": 1,
@@ -19,6 +21,14 @@ func TestJsonStructure(t *testing.T) {
 
 	if err != nil {
 		t.Error("it should not error when you make the righ struct that represent json string")
+	}
+
+	if myStruct.ID != 1 {
+		t.Error("it should be 1")
+	}
+
+	if myStruct.Lang != "go" {
+		t.Error("it should be go")
 	}
 }
 
