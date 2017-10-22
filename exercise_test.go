@@ -18,7 +18,7 @@ func TestMyPrintfErrorAndStringer(t *testing.T) {
 
 	s := myPrintf(err, n)
 	if s != "something when wrong!! 12" {
-		t.Error("it shhould work with fmt.Stringer and error as well")
+		t.Error("it should work with fmt.Stringer and error as well")
 	}
 }
 
@@ -28,6 +28,6 @@ func TestMyPrintfAny(t *testing.T) {
 
 	s := myPrintf("abc", err, n, 123)
 	if s != "abc something when wrong!! 12 123" {
-		t.Error("it shhould work with fmt.Stringer and error as well")
+		t.Error("it should work with fmt.Stringer and error as well")
 	}
 }
