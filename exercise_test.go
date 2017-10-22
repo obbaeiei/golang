@@ -6,7 +6,10 @@ import (
 	"testing"
 )
 
-type langStruct struct{}
+type langStruct struct {
+	ID       int    `xml:"id"`
+	Language string `json:"lang" xml:"lang"`
+}
 
 func TestJsonStructure(t *testing.T) {
 	jsonStr := `{
@@ -27,7 +30,7 @@ func TestJsonStructure(t *testing.T) {
 		t.Error("it should be 1")
 	}
 
-	if myStruct.Lang != "go" {
+	if myStruct.Language != "go" {
 		t.Error("it should be go")
 	}
 }
@@ -74,4 +77,11 @@ func TestJsonAndXMLStructure(t *testing.T) {
 		t.Error("it should not error when you make the righ struct that represent json string")
 	}
 
+	if myStruct.ID != 1 {
+		t.Error("it should be 1")
+	}
+
+	if myStruct.Language != "go" {
+		t.Error("it should be go")
+	}
 }
