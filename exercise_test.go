@@ -81,3 +81,11 @@ func TestCase10GetBuzz(t *testing.T) {
 		t.Errorf("%s is expected result but got %s", expected, result)
 	}
 }
+
+func TestCase15GetFizzBuzz(t *testing.T) {
+	result := text(15)
+	expected := "fizzbuzz"
+	if result != expected {
+		t.Errorf("%s is expected result but got %s", expected, result)
+	}
+}
