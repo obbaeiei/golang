@@ -3,7 +3,7 @@ package golang
 import "strconv"
 
 func text(x int) string {
-	if x == 3 {
+	if (x % 3) == 0 {
 		return "fizz"
 	}
 	if x == 5 {
