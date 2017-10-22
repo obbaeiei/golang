@@ -57,3 +57,11 @@ func TestCase7Get7(t *testing.T) {
 		t.Errorf("%s is expected result but got %s", expected, result)
 	}
 }
+
+func TestCase8Get8(t *testing.T) {
+	result := text(8)
+	expected := "8"
+	if result != expected {
+		t.Errorf("%s is expected result but got %s", expected, result)
+	}
+}
