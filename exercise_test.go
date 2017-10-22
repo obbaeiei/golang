@@ -33,3 +33,11 @@ func TestCase4Get4(t *testing.T) {
 		t.Errorf("%s is expected result but got %s", expected, result)
 	}
 }
+
+func TestCase5GetBuzz(t *testing.T) {
+	result := text(5)
+	expected := "buzz"
+	if result != expected {
+		t.Errorf("%s is expected result but got %s", expected, result)
+	}
+}
