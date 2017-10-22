@@ -2,7 +2,7 @@ package golang
 
 import "testing"
 
-func TestCase1Get1(t *testings.T) {
+func TestCase1Get1(t *testing.T) {
 	result := text(1)
 	expected := "1"
 
